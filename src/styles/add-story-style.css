@@ -1,0 +1,142 @@
+.story-container {
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  font-family: "Inter", sans-serif;
+}
+
+.story-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #1e1e1e;
+}
+
+.story-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.story-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+#story-form input,
+#story-form textarea,
+.story-btn-submit {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#story-form input:focus,
+#story-form textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+#story-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.story-map-container {
+  margin-top: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.story-btn-submit {
+  display: inline-block;
+  background-color: rgb(62, 32, 133);
+  box-shadow: 0 10px 30px rgba(131, 77, 255, 0.5);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.story-btn-submit:hover {
+  background-color: #150335;
+}
+
+
+.story-form-group input[type="number"]#lat,
+.story-form-group input[type="number"]#lon {
+  width: 48%;
+  display: inline-block;
+  margin-right: 2%;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border: 1.5px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fafbfc;
+  transition: border-color 0.2s;
+}
+
+.story-form-group input[type="number"]#lon {
+  margin-right: 0;
+}
+
+.story-form-group input[type="number"]:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+#map,
+#map-container,
+.story-map-container {
+  width: 100% !important;
+  min-width: 0;
+  height: 300px;
+  max-height: 50vw;
+}
+@media (max-width: 600px) {
+  #map,
+  #map-container,
+  .story-map-container {
+    height: 200px;
+    max-height: 60vw;
+  }
+}
+#camera-preview,
+video#camera {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 250px;
+  border-radius: 8px;
+}
+
+.story-form-group input,
+.story-form-group textarea,
+.story-btn-submit,
+.btn-submit {
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (max-width: 600px) {
+  .story-form-group input,
+  .story-form-group textarea,
+  .story-btn-submit,
+  .btn-submit {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
