@@ -5,8 +5,8 @@ export default class AddStoryCameraView {
       <section class="story-container" id="main-content">
         <h1 class="story-title ">Tambah Story Kamera</h1>
         <div class="tab-container">
-          <a id="file-tab" class="tab-button active" href="#/add-story">Pilih Foto dari File</a>
-          <a id="camera-tab" class="tab-button" href="#/add-story-camera">Pilih Foto dengan Kamera</a>
+          <a id="file-tab" class="tab-button" href="#/add-story">Pilih Foto dari File</a>
+          <a id="camera-tab" class="tab-button active" href="#/add-story-camera">Pilih Foto dengan Kamera</a>
         </div>
         <label for="photo">Foto</label>
         <video id="camera" autoplay></video>

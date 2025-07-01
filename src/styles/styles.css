@@ -18,6 +18,7 @@ body {
 }
 
 header {
+  font-family: 'Poppins';
   background-color:rgba(17, 0, 110, 0.35);
   margin-bottom: 7rem;
   
@@ -26,7 +27,7 @@ header {
 .main-header {
   min-height: 90px;
   padding-block: 20px;
- font-family: 'Poppins', Arial, sans-serif;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -102,7 +103,6 @@ header {
 /* MAIN */
 .main-content {
   padding-block: 20px;
-  
 }
 
 /* Write your styles more here */
@@ -211,7 +211,7 @@ header {
 }
 
 .tab-button {
-  font-family: 'Poppins', Arial, sans-serif;
+  font-family: 'Poppins';
   padding: 10px 20px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
@@ -290,7 +290,7 @@ header {
 
 
 footer {
-   font-family: 'Poppins', Arial, sans-serif;
+  font-family: 'Poppins';
   background-color:rgb(211, 211, 211);
   border-top: 4px solidrgba(229, 231, 235, 0.87); /* soft gray border */
   padding: 1.25rem;
