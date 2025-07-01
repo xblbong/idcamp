@@ -292,7 +292,7 @@ header {
 footer {
   font-family: 'Poppins';
   background-color:rgb(211, 211, 211);
-  border-top: 4px solidrgba(229, 231, 235, 0.87); /* soft gray border */
+  border-top: 4px solidrgba(229, 231, 235, 0.87); 
   padding: 1.25rem;
   text-align: center;
   font-size: 0.9rem;
