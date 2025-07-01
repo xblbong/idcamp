@@ -1,20 +1,18 @@
 export default class RegisterView {
   render() {
     return `
-    <button>
     <a href="#main-content" class="skip-link">Skip to content</a>
-    </button>
       <section class="regist-content" id="main-content">
       <form id="register-form">
-      <h1>Register</h1>
-          <label for="name">Nama</label>
-          <input type="text" id="name" placeholder="Nama" required />
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Email" required />
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Password" required />
+      <h1 style="font-family: poppins">Register</h1>
+          <label style="font-family: poppins; color: #fff;" for="name">Nama</label>
+          <input type="text" id="name" placeholder="Nama" required style="font-family: poppins;" />
+          <label style="font-family: poppins; color: #fff;" for="email">Email</label>
+          <input type="email" id="email" placeholder="Email" required style="font-family: poppins;" />
+          <label style="font-family: poppins; color: #fff;" for="password">Password</label>
+          <input type="password" id="password" placeholder="Password" required style="font-family: poppins;" />
           <button type="submit" style="margin-top: 0.8rem;">Register</button>
-          <p>Sudah punya akun? <a href="#/">Login</a></p>
+          <p style="font-family: poppins;">Sudah punya akun? <a href="#/" style="text-decoration:none; font-family: poppins; color: #fff;">Login</a></p>
         </form>
         <div id="loading-overlay" hidden>
           <div class="spinner"></div>
