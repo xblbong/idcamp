@@ -1,3 +1,5 @@
+import * as idb from "../utils/idb.js";
+
 export default class HomePresenter {
   #view;
   #model;
@@ -5,6 +7,7 @@ export default class HomePresenter {
   #marker = null;
   #userMarker = null;
   #storyMarkers = [];
+  #stories = [];
 
   constructor({ view, model }) {
     this.#view = view;
@@ -15,13 +18,39 @@ export default class HomePresenter {
     this.#view.showLoading();
     try {
       const stories = await this.#model.getStories();
-      this.#view.showStories(stories);
+      this.#stories = stories;
+      this.#view.showStories(stories, false);
       await this.initMap();
       this.showStoryMarkers(stories);
+      this.#view.bindSaveOffline(this.saveStoryOffline.bind(this));
+      this.#view.bindShowOffline(this.showOfflineStories.bind(this));
+      this.#view.bindDeleteOffline(this.deleteOfflineStory.bind(this));
     } catch (err) {
       this.#view.showError('Gagal memuat story.');
     }
     this.#view.hideLoading();
+  }
+
+  async saveStoryOffline(id) {
+    const story = this.#stories.find((s) => s.id === id);
+    if (story) {
+      await idb.saveStory(story);
+      this.#view.showSuccess("Story disimpan ke offline!");
+    }
+  }
+
+  async showOfflineStories() {
+    this.#view.showLoading();
+    const stories = await idb.getAllStories();
+    this.#view.showStories(stories, true);
+    this.#view.bindDeleteOffline(this.deleteOfflineStory.bind(this));
+    this.#view.hideLoading();
+  }
+
+  async deleteOfflineStory(id) {
+    await idb.deleteStory(id);
+    this.#view.showSuccess("Story offline dihapus!");
+    this.showOfflineStories();
   }
 
   async initMap() {
@@ -53,18 +82,18 @@ export default class HomePresenter {
     L.control.layers(baseLayers).addTo(this.#map);
 
     // Geolocation
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const lat = pos.coords.latitude;
-        const lon = pos.coords.longitude;
-        this.#view.setLatLon(lat, lon);
-        this.#map.setView([lat, lon], 13);
-        this.#marker = L.marker([lat, lon]).addTo(this.#map);
-      },
-      (err) => console.warn(err)
-    );
-  }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const lat = pos.coords.latitude;
+          const lon = pos.coords.longitude;
+          this.#view.setLatLon(lat, lon);
+          this.#map.setView([lat, lon], 13);
+          this.#marker = L.marker([lat, lon]).addTo(this.#map);
+        },
+        (err) => console.warn(err)
+      );
+    }
   }
 
   showStoryMarkers(stories) {
